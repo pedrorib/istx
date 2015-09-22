@@ -5,7 +5,7 @@
 export OPENEDX_RELEASE=named-release/cypress
 CONFIG_VER=$OPENEDX_RELEASE
 
-if [[ ! "$(lsb_release -d | cut -f2)" =~ $'Ubuntu 14.04.2 LTS' ]]; then
+if [[ ! "$(lsb_release -d | cut -f2)" =~ $'Ubuntu 14.04.2 LTS' || $'Ubuntu 14.04.3 LTS' ]]; then
    echo "Esta versão da configuração foi modificada para trabalhar somente com Ubuntu 14.04.2 LTS. Abortar";
    exit;
 else
