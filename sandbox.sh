@@ -55,6 +55,7 @@ else
      CONFIG_VER="named-release/cypress"
    fi
 
+sed -i "/COMMON_SSH_PASSWORD_AUTH/ s/no/yes/g" /var/tmp/configuration/playbooks/roles/common/defaults/main.yml
 sed -i "/libblas/ s/^/#/g" /var/tmp/configuration/playbooks/roles/edxapp/tasks/python_sandbox_env.yml
 sed -i "/liblapack/ s/^/#/g" /var/tmp/configuration/playbooks/roles/edxapp/tasks/python_sandbox_env.yml
 sed -i "/liblapac/ s/^/#/g" /var/tmp/configuration/playbooks/roles/edxapp/tasks/python_sandbox_env.yml
