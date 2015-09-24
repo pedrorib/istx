@@ -26,7 +26,7 @@ echo "1" > ~/progress.txt
 if [["$(cat ~/progress.txt | tail --lines=1)" = "1"]]; then
  echo "SKIPPING"
 else
-sudo apt-get install -y build-essential software-properties-common python-software-properties curl git-core libxml2-dev libxslt1-dev python-pip python-apt python-dev
+sudo apt-get install -y build-essential software-properties-common python-software-properties curl git-core libxml2-dev libxslt1-dev python-pip python-apt python-dev libatlas3-base
 sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv
 fi
