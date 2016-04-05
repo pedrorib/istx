@@ -23,7 +23,7 @@ echo "1" > ~/progress.txt
 ##
 ## Install system pre-requisites
 ##
-if [["$(cat ~/progress.txt | tail --lines=1)" = "1"]]; then
+if [ -n "$(cat ~/progress.txt | grep 1)" ]; then
  echo "SKIPPING"
 else
 sudo apt-get install -y build-essential software-properties-common python-software-properties curl git-core libxml2-dev libxslt1-dev python-pip python-apt python-dev libatlas3-base
@@ -36,7 +36,7 @@ echo "2" >> ~/progress.txt
 ##
 ## Clone the configuration repository and run Ansible
 ##
-if [["$(cat ~/progress.txt | tail --lines=1)"="2"]]; then
+if [ -n "$(cat ~/progress.txt | grep 2)" ]; then
  echo "SKIPPING"
 else
 	cd /var/tmp
@@ -69,7 +69,7 @@ echo "3" >> ~/progress.txt
 ## Install the ansible requirements
 ##
 
-if [["$(cat ~/progress.txt | tail --lines=1)"="3"]]; then
+if [ -n "$(cat ~/progress.txt | grep 3)" ]; then
  echo "SKIPPING"
 else
 cd /var/tmp/configuration
