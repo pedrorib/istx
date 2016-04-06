@@ -5,12 +5,12 @@
 export OPENEDX_RELEASE=named-release/cypress
 CONFIG_VER=$OPENEDX_RELEASE
 
-if [[ ! "$(lsb_release -d | cut -f2)" =~ $'Ubuntu 14.04.2 LTS' || $'Ubuntu 14.04.3 LTS' ]]; then
-   echo "Esta versão da configuração foi modificada para trabalhar somente com Ubuntu 14.04.2 LTS. Abortar";
-   exit;
-else
-echo "Esta é uma versão modificada para Ubuntu 14.04. Usar com cuidado."
-fi
+#if [[ ! "$(lsb_release -d | cut -f2)" =~ $'Ubuntu 14.04.2 LTS' || $'Ubuntu 14.04.3 LTS' ]]; then
+#   echo "Esta versão da configuração foi modificada para trabalhar somente com Ubuntu 14.04.2 LTS. Abortar";
+#   exit;
+#else
+#echo "Esta é uma versão modificada para Ubuntu 14.04. Usar com cuidado."
+#fi
 
 ##
 ## Update and Upgrade apt packages
@@ -26,7 +26,7 @@ echo "1" > ~/progress.txt
 if [ -n "$(cat ~/progress.txt | grep 1)" ]; then
  echo "SKIPPING"
 else
-sudo apt-get install -y build-essential software-properties-common python-software-properties curl git-core libxml2-dev libxslt1-dev python-pip python-apt python-dev libatlas3-base
+sudo apt-get install -y build-essential software-properties-common python-software-properties curl git-core libxml2-dev libxslt1-dev libfreetype6-dev python-pip python-apt python-dev libxmlsec1-dev swig libmysqlclient-dev libatlas3-base
 sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv
 fi
