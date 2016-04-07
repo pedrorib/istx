@@ -18,8 +18,6 @@ CONFIG_VER=$OPENEDX_RELEASE
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-echo "1" > ~/progress.txt 
-
 ##
 ## Install system pre-requisites
 ##
@@ -29,9 +27,8 @@ else
 sudo apt-get install -y build-essential software-properties-common python-software-properties curl git-core libxml2-dev libxslt1-dev libfreetype6-dev python-pip python-apt python-dev libxmlsec1-dev swig libmysqlclient-dev libatlas3-base
 sudo pip install --upgrade pip
 sudo pip install --upgrade virtualenv
+echo "1" > ~/progress.txt 
 fi
-
-echo "2" >> ~/progress.txt
 
 ##
 ## Clone the configuration repository and run Ansible
@@ -60,10 +57,10 @@ sed -i "/libblas/ s/^/#/g" /var/tmp/configuration/playbooks/roles/edxapp/tasks/p
 sed -i "/liblapack/ s/^/#/g" /var/tmp/configuration/playbooks/roles/edxapp/tasks/python_sandbox_env.yml
 sed -i "/liblapac/ s/^/#/g" /var/tmp/configuration/playbooks/roles/edxapp/tasks/python_sandbox_env.yml
 sed -i "s/https/http/g" /var/tmp/configuration/playbooks/roles/elasticsearch/defaults/main.yml
+echo "2" >> ~/progress.txt
 
 fi
 
-echo "3" >> ~/progress.txt
 
 ##
 ## Install the ansible requirements
@@ -74,6 +71,7 @@ if [ -n "$(cat ~/progress.txt | grep 3)" ]; then
 else
 cd /var/tmp/configuration
 sudo pip install -r requirements.txt
+echo "3" >> ~/progress.txt
 fi
 
 ##
