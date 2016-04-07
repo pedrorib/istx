@@ -78,4 +78,11 @@ fi
 ## Run the edx_sandbox.yml playbook in the configuration/playbooks directory
 ##
 
-cd /var/tmp/configuration/playbooks && sudo ansible-playbook -c local ./edx_sandbox.yml -i "localhost," $EXTRA_VARS
+cd /var/tmp/configuration/playbooks && sudo ansible-playbook -c local ./edx_sandbox.yml -i "localhost," $EXTRA_VARS | tee ~/install.log
+
+cat ~/install.log | grep failed
+
+
+
+
+
