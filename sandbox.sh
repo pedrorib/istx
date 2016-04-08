@@ -76,7 +76,7 @@ fi
 if [ -n "$(cat ~/progress.txt | grep 3)" ]; then
  echo "SKIPPING"
 else
-cd /var/tmp/configuration
+cd ~/configuration
 sudo pip install -r requirements.txt
 echo "3" >> ~/progress.txt
 fi
@@ -85,6 +85,6 @@ fi
 ## Run the edx_sandbox.yml playbook in the configuration/playbooks directory
 ##
 
-cd /var/tmp/configuration/playbooks && sudo ansible-playbook -c local ./edx_sandbox.yml -i "localhost," $EXTRA_VARS | tee ~/install.log
+cd ~/configuration/playbooks && sudo ansible-playbook -c local ./edx_sandbox.yml -i "localhost," $EXTRA_VARS | tee ~/install.log
 
 #cat ~/install.log | grep failed
