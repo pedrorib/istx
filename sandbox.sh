@@ -15,8 +15,15 @@ CONFIG_VER=$OPENEDX_RELEASE
 ##
 ## Update and Upgrade apt packages
 ##
+
+if [-n "$(cat ~/progress.txt | grep 0)" ]; then 
+echo "SKIPPING"
+else
 sudo apt-get update -y
 sudo apt-get upgrade -y
+echo "0" > progress.txt
+fi
+
 
 ##
 ## Install system pre-requisites
