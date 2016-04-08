@@ -80,9 +80,4 @@ fi
 
 cd /var/tmp/configuration/playbooks && sudo ansible-playbook -c local ./edx_sandbox.yml -i "localhost," $EXTRA_VARS | tee ~/install.log
 
-cat ~/install.log | grep failed
-
-
-
-
-
+#cat ~/install.log | grep failed
