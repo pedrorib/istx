@@ -36,7 +36,7 @@ fi
 if [ -n "$(cat ~/progress.txt | grep 2)" ]; then
  echo "SKIPPING"
 else
-	cd /var/tmp
+	cd ~
 	git clone https://github.com/edx/configuration
 	cd configuration
 	git checkout $CONFIG_VER
